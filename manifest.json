@@ -1,0 +1,29 @@
+{
+  "manifest_version": 2,
+  "name": "mma-blindfold",
+  "description": "Adds an MMA Blindfold to Wikipedia pages.",
+  "version": "0.1",
+  "homepage_url": "https://github.com/activityworkshop/MmaBlindfold",
+
+  "background": {
+    "scripts": ["background.js"]
+  },
+
+  "page_action": {
+    "default_icon": "icons/off.svg",
+    "browser_style": true,
+    "show_matches": ["https://*.wikipedia.org/*"]
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["https://*.wikipedia.org/*"],
+      "js": ["content_scripts/updatepage.js"]
+    }
+  ],
+
+  "permissions": [
+    "tabs", "cookies", "<all_urls>", "activeTab"
+  ]
+}
+
